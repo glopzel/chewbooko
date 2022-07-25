@@ -5,7 +5,7 @@ const cors = require('cors')
 const dotenv = require('dotenv')
 const MongoClient = require('mongodb').MongoClient
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = 8000;
 
 dotenv.config()
 
@@ -87,6 +87,6 @@ app.delete('/deleteBook', (request, response) => {
     .catch(err => console.error(err))
 })
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
